@@ -8,7 +8,6 @@ expenses = []
 
 def add_expenses():
     name = input("Enter your name: ")
-    date = input("Enter Date in DD-MM-YYYY format: ")
 
     try:
         amount = float(input("Enter the amount you spend: "))
@@ -16,16 +15,17 @@ def add_expenses():
         print("Amount should be a number.")
         return
 
+    today = datetime.datetime.today()
+    clean_time = today.strftime("%d-%m-%y %I-%M-%S %p")
     expense = {
         "name" : name,
-        "date" : date,
         "expense": amount
     }
     expenses.append(expense)
 
     # Fixed: Standardized to lowercase "tracker" to match loading function
     with open("expense_tracker.txt", "a") as file:
-        file.write(f"{name},{date},{amount}\n")
+        file.write(f"{name},{clean_time},{amount}\n")
 
     print("Expense added successfully!")
 
