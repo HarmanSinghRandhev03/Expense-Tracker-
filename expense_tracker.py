@@ -18,8 +18,8 @@ def add_expenses():
     today = datetime.datetime.today()
     clean_time = today.strftime("%d-%m-%y %I-%M-%S %p")
     expense = {
-        "Name" : name,
-        "Date" : clean_time,
+        "name" : name,
+        "date" : clean_time,
         "expense" : amount
     }
     expenses.append(expense)
@@ -36,7 +36,7 @@ def show_expenses():
         print("No expense record available.")
         return
     for expense in expenses:
-        print(f"Name: {expense['Name']} | Date: {expense['Date']} | Expense: {expense['Expense']}")
+        print(f"Name: {expense['name']} | Date: {expense['date']} | Expense: {expense['expense']}")
 
 
 def load_Expenses():
@@ -52,11 +52,11 @@ def load_Expenses():
                 
                 # Check if the line actually has exactly 3 sections (Name, Date, Amount)
                 if len(parts) == 3:
-                    name, date, amount = parts
+                    name, clean_time, amount = parts
                     try:
                         expense = {
                             "name" : name.strip(),
-                            "date" : date.strip(),
+                            "date" : clean_time,
                             "expense": float(amount.strip())
                         }
                         expenses.append(expense)
