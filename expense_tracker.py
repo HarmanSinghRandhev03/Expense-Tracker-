@@ -1,3 +1,9 @@
+import json
+import datetime
+import csv
+import pathlib
+import sys
+
 expenses = []
 
 def add_expenses():
