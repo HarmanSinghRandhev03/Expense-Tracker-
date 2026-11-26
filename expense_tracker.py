@@ -18,8 +18,9 @@ def add_expenses():
     today = datetime.datetime.today()
     clean_time = today.strftime("%d-%m-%y %I-%M-%S %p")
     expense = {
-        "name" : name,
-        "expense": amount
+        "Name" : name,
+        "Date" : clean_time,
+        "expense" : amount
     }
     expenses.append(expense)
 
@@ -35,7 +36,7 @@ def show_expenses():
         print("No expense record available.")
         return
     for expense in expenses:
-        print(f"Name: {expense['name']} | Date: {expense['date']} | Expense: {expense['expense']}")
+        print(f"Name: {expense['Name']} | Date: {expense['Date']} | Expense: {expense['Expense']}")
 
 
 def load_Expenses():
